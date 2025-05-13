@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:WeatherClient.ViewModel"
+             x:Class="WeatherClient.Pages.BindingTestPage">
+
+    <ContentPage.BindingContext>
+        <vm:BindingTestViewModel />
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+
+            <Label Text="Binding Mode" FontAttributes="Bold" FontSize="20" />
+
+            <Label Text="OneWay" />
+            <Label Text="{Binding UserName, Mode=OneWay}" />
+
+            <Label Text="TwoWay" />
+            <Entry Text="{Binding UserName, Mode=TwoWay}" Placeholder="Введи ім'я"/>
+
+            <Label Text="OneWayToSource" />
+            <Entry Text="{Binding UserName, Mode=OneWayToSource}" Placeholder="Введи ім’я (не видно змін)"/>
+
+            <Label Text="String Formatting" FontAttributes="Bold" FontSize="20" />
+
+            <Label Text="Температура без форматування:" />
+            <Label Text="{Binding Temperature}" />
+
+            <Label Text="Температура з форматуванням:" />
+            <Label Text="{Binding Temperature, StringFormat='Температура: {0:F1} °C'}" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

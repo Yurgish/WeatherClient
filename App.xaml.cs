@@ -1,4 +1,6 @@
 ﻿
+using WeatherClient.Pages;
+
 namespace WeatherClient;
 
 public partial class App : Application
@@ -6,11 +8,11 @@ public partial class App : Application
     public App()
     {
         InitializeComponent();
-
-        Routing.RegisterRoute(nameof(WeatherClient.MainPage), typeof(WeatherClient.MainPage));
+        MainPage = new BindingTestPage();
+        //Routing.RegisterRoute(nameof(WeatherClient.MainPage), typeof(WeatherClient.MainPage));
     }
 
-    protected override Window CreateWindow(IActivationState? activationState)
+    /*protected override Window CreateWindow(IActivationState? activationState)
     {
         var window = new Window(new AppShell());
 #if WINDOWS
@@ -18,5 +20,5 @@ public partial class App : Application
         window.Height = 300;
 #endif
 			return window;
-    }
+    }*/
 }
